@@ -1,0 +1,50 @@
+*{box-sizing:border-box}
+.container {max-width: 1100px; padding: 0 15px; margin: 0 auto}
+.d-flex {display: flex;}
+.col-50 {width: 50%;}
+.pageWrap {padding-top: 100px}
+.sectionWrap  { border-top:3px solid #fcf; border-bottom:2px solid #fcf }
+.leftPanel , .rightPanel  {padding: 20px 15px}
+.leftPanel {border-right: 1px solid #ccc;}
+.sectionWrap  {margin: 0 -15px}
+.emailLists {height: 200px;overflow:auto }
+.leftPanel label{ display: block; color: #434343; margin-bottom:15px }
+.leftPanel input[type="email"] {padding:5px 10px; border:1px solid #ccc; max-width: 250px; width: 100%; border-radius:5px; margin-right: 10px; outline: none }
+.leftPanel input[type="email"].error {border: 1px solid #f00}
+.leftPanel input[type="submit"] {padding:5px 15px; outline: none; border: none; background: #30a6fe; color:#fff;border-radius:3px; margin-right: 10px; cursor: pointer; }
+.formErr {color: #f00; font-size: 12px;padding-top: 3px}
+.noEmails {text-align: center}
+.searchBox input[type="text"] {padding:5px 10px; border:1px solid #ccc; border-right:0;   width: calc(100% - 41px);     border-radius: 5px 0px 0px 5px; height: 36px;    outline: none}
+.searchBox input[type="submit"] {padding:9px;font-size: 16px;outline: none; border:none; font-weight: bold; background: #30a6fe; color:#fff;border-radius: 0 5px 5px 0;  cursor: pointer; }
+.searchBox {margin-bottom: 10px}
+.showAllenables {padding-bottom: 10px; margin-bottom: 20px; border-bottom:2px solid #30a6fe;}
+
+.emailLists table {width: 100%; border-color:#444; border-collapse:collapse  }
+.emailLists table thead{ background: #e7e7f3}
+
+.emailLists table thead th{font-weight: 700; text-align: left; font-size: 14px; padding: 5px 15px}
+.emailLists table thead th:last-child{text-align: center}
+.emailLists table tbody tr:nth-child(even) {background: #f8f8f8}
+.emailLists table tbody tr td { padding: 5px 15px}
+.emailLists table tbody tr td:last-child{text-align: center}
+.deleteIcon {width: 22px;  height: auto;}
+input[type="checkbox"] {     width: 18px;
+    height: 18px;
+    padding: 0;
+    z-index: 999;
+position: relative;
+opacity: 0;
+    margin: 0;}
+
+input[type="checkbox"] ~ label {position: relative; padding-left: 10px}
+input[type="checkbox"] ~ label::after{ position: absolute;
+    width: 15px;
+    height: 15px;
+    border: 1px solid #444;
+    content: "";
+    display: block;
+    top: 0;
+    left: -18px;}
+    input[type="checkbox"]:checked ~ label::after {background: #30a6fe;}
+    input[type="checkbox"]:checked ~ label::before {content: "\2713";display: block; color: #fff;left: -15px;
+        top: -3px; position: absolute;  z-index: 9;}

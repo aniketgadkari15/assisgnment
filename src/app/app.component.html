@@ -1,0 +1,50 @@
+<div class="pageWrap">
+  <div class="container">
+      <div class="sectionWrap d-flex">
+          <div class="leftPanel col-50">
+              <form   [formGroup]="updateEmails" (ngSubmit)=addEmail() >
+                  <label>Email Address</label>
+                  <input type="email" [className]="errors?'error':''" formControlName="emailAddress" id="emailAddress">
+                  <input type="submit" value="Add">
+                </form>
+                <div class="formErr" *ngIf="errors">{{errors}}</div>
+          </div>
+          <div class="rightPanel col-50">
+            <div class="EmailsWrap" *ngIf="emailsArr.length">
+            <div class="searchBox">
+              <form class="d-flex" [formGroup]="searchEmail" (ngSubmit)=searchEmails()>
+                  <input type="text" (change)="clearResults($event)" formControlName="searchField" id="searchField">
+                  <input type="submit" value="Go">
+              </form>
+            </div>
+            <div class="showAllenables d-flex">
+                <input type="checkbox" (change)="toggleEmails($event)">
+                <label>show enabled emails</label>
+            </div>
+            <div class="emailLists">
+              <table>
+                <thead>
+                 
+                    <th>Enable</th>
+                    <th>Email</th>
+                    <th>delete</th>
+                  
+                </thead>
+                  <tbody>
+                    <tr  *ngFor="let email of emails index as i">
+                        <td><input [className]="enableClass" type="checkbox" (change)="enableEmail(i,$event)"><label></label></td>
+                        <td>{{email.email}}</td>
+                        <td><a href="#" (click)="deleteEmail(i)"><img src="../assets/images/delete.png" alt="delete" class="deleteIcon" /></a></td>
+                    </tr>
+                  </tbody>
+              </table>
+             
+            </div>
+            </div>
+            <div class="noEmails" *ngIf="!emailsArr.length">
+              <strong>No emails Added</strong>
+            </div>
+          </div>
+      </div>
+  </div>
+</div>
